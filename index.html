@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+  <title>Imagens de cachorros</title>
+    
+</head>
+
+<body>
+	<div>
+		<h2 id="titulo"> Selecione uma raça de cachorro para ver uma foto aleatória dele e sua respectiva descrição</h2>
+		<select name="selecao_caes" id="selecao_caes" required="required">
+			<option selected disabled> Selecione uma raça </option>
+			<option value="affenpinscher"> Affenpinscher </option>
+			<option value="african"> Mabeco </option>
+			<option value="airedale"> Airedale terrier</option>
+			<option value="akita"> Akita Inu </option>
+			<option value="appenzeller"> Boiadeiro de Appenzell </option>
+			<option value="australian/shepherd"> Pastor-australiano </option>
+			<option value="basenji"> Basenji </option>
+			<option value="beagle"> Beagle </option>
+			<option value="bluetick"> Bluetick Coonhound </option>
+			<option value="borzoi"> Borzoi </option>
+			<option value="bouvier"> Boiadeiro da Flandres </option>
+			<option value="boxer"> Boxer </option>
+			<option value="brabancon"> Griffon de Bruxelas </option>
+			<option value="briard"> Pastor-de-brie </option>
+			<option value="buhund/norwegian"> Buhund norueguês </option>
+		</select>
+	</div>
+	<div class="flex-container">
+		<img id="img_cao">
+		<p id="desc_cao"></p>
+	</div>
+	<script src="js/chamadasApi.js"></script>
+</body>
+
+</html>

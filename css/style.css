@@ -1,0 +1,38 @@
+body {
+	font-family: "Comic Sans", cursive;
+	background-color: NavajoWhite;
+	color: MidnightBlue;
+}
+
+#titulo {
+	text-align: center;
+}
+
+#selecao_caes {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.flex-container {
+	display: flex;
+	flex-direction: row;
+	margin-top: 20px;
+}
+
+@media (max-width: 800px){
+	.flex-container {
+		flex-direction: column;
+		margin-top: 20px;
+	}
+}
+
+#img_cao {
+	margin-left: 20px;
+}
+
+#desc_cao {
+	margin-left: 10px;
+	margin-right: 10px;
+	text-align: center;
+}
