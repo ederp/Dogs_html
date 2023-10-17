@@ -1,5 +1,5 @@
 body {
-	font-family: "Comic Sans", cursive;
+	font-family: "Perpetua", "Baskerville", "Big Caslon", "Palatino Linotype", "Palatino", serif;
 	background-color: NavajoWhite;
 	color: MidnightBlue;
 }
@@ -29,10 +29,15 @@ body {
 
 #img_cao {
 	margin-left: 20px;
+	margin-right: 10px;
+	max-width: 70%;
+	border-radius: 5px;
 }
 
 #desc_cao {
 	margin-left: 10px;
-	margin-right: 10px;
+	margin-right: 20px;
 	text-align: center;
+	line-height: 1.5;
+	font-size: 17px;
 }
