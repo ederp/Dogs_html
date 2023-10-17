@@ -12,8 +12,8 @@
 
 <body>
 	<div>
-		<h2 id="titulo"> Selecione uma raça de cachorro para ver uma foto aleatória dele e sua respectiva descrição</h2>
-		<select name="selecao_caes" id="selecao_caes" required="required">
+		<h2 id="titulo"> Selecione uma raça de cachorro para ver informações sobre ela </h2>
+		<select required="required">
 			<option selected disabled> Selecione uma raça </option>
 			<option value="affenpinscher"> Affenpinscher </option>
 			<option value="african"> Mabeco </option>
@@ -53,13 +53,25 @@
 			<option value="doberman"> Dobermann </option>
 			<option value="elkhound/norwegian"> Elkhound </option>
 			<option value="entlebucher"> Boiadeiro de Entlebuch </option>
-			<!-- <option value="eskimo"> Cão Esquimó Americano </option> traduzir da Wikipedia em inglês-->
+			<!-- <option value="eskimo"> American Eskimo Dog </option> traduzir da Wikipedia em inglês-->
 			<option value="finnish/lapphund"> Cão-finlandês-da-lapônia </option>
 			<option value="frise/bichon"> Bichon Frisé </option>
+			<option value="germanshepherd"> Pastor-alemão </option>
+			<option value="greyhound/italian"> Galguinho italiano </option>
+			<option value="groenendael"> Pastor Belga Groenendael </option>
+			<option value="havanese"> Bichon havanês </option>
+			<option value="hound/afghan"> Galgo afegão </option>
+			<option value="hound/basset"> Basset Hound </option>
+			<option value="hound/blood"> Cão-de-santo-humberto </option>
+			<option value="hound/english"> Foxhound-inglês </option>
+			<option value="hound/ibizan"> Podengo ibicenco </option>
+			<!-- <option value="hound/plott"> Plott Hound </option> traduzir da Wikipedia em inglês-->
+			<option value="hound/walker"> Treeing Walker Coonhound </option>
+			<!-- <option value="husky"> Husky </option> traduzir da Wikipedia em inglês-->
 		</select>
 	</div>
 	<div class="flex-container">
-		<img id="img_cao">
+		<img id="img_cao" />
 		<p id="desc_cao"></p>
 	</div>
 	<script src="js/chamadasApi.js"></script>

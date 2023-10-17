@@ -8,7 +8,7 @@ body {
 	text-align: center;
 }
 
-#selecao_caes {
+select {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
