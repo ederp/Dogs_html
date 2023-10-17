@@ -23,6 +23,7 @@ body {
 @media (max-width: 800px){
 	.flex-container {
 		flex-direction: column;
+		margin: auto;
 		margin-top: 20px;
 	}
 }
