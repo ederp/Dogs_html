@@ -6,7 +6,7 @@ function requestResponseAPI(endereco) {
 	return Http;
 }
 
-document.querySelector('select').addEventListener('change', function() {
+document.getElementById('select_cao').addEventListener('change', function() {
 	let dogImage = document.getElementById('img_cao');
 	let dogDesc = document.getElementById('desc_cao');
 	const dogText = this.options[this.selectedIndex].text;
