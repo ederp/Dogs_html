@@ -16,6 +16,7 @@ document.getElementById('select_cao').addEventListener('change', function() {
 	let dogImage = document.getElementById('img_cao');
 	let dogDesc = document.getElementById('desc_cao');
 	const dogText = this.options[this.selectedIndex].text;
+	const idValue = this.options[this.selectedIndex].id;
 	dogImage.src = '';
 	const requestDogApi = requestAPI("https://dog.ceo/api/breed/"+this.value+"/images/random");
 	requestDogApi.onreadystatechange = function(){
@@ -24,7 +25,7 @@ document.getElementById('select_cao').addEventListener('change', function() {
 			dogImage.src = jsonDogApi.message;
 		}
 	}
-	const requestWikiApi = requestAPI("https://pt.wikipedia.org/api/rest_v1/page/summary/"+dogText+"?redirect=true");
+	const requestWikiApi = requestAPI("https://"+idValue+".wikipedia.org/api/rest_v1/page/summary/"+dogText+"?redirect=true");
 	requestWikiApi.onreadystatechange = function(){
 		if(this.readyState === 4 && this.status === 200){
 			const jsonWikiApi = successResponse(this);
