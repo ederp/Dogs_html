@@ -13,25 +13,26 @@ function successResponse(http) {
 }
 
 document.getElementById('select_cao').addEventListener('change', function() {
-	let dogImage = document.getElementById('img_cao');
+	let dogImagem  = document.getElementById('img_cao');
 	let dogDesc = document.getElementById('desc_cao');
-	const dogText = this.options[this.selectedIndex].text;
-	const idValue = this.options[this.selectedIndex].id;
-	dogImage.src = '';
+	const indSel = this.options[this.selectedIndex];
+	dogImagem.src = '';
 	const requestDogApi = requestAPI("https://dog.ceo/api/breed/"+this.value+"/images/random");
 	requestDogApi.onreadystatechange = function(){
 		if(this.readyState === 4 && this.status === 200){
 			const jsonDogApi = successResponse(this);
-			dogImage.src = jsonDogApi.message;
+			dogImagem.src = jsonDogApi.message;
 		}
 	}
-	const requestWikiApi = requestAPI("https://"+idValue+".wikipedia.org/api/rest_v1/page/summary/"+dogText+"?redirect=true");
+	const requestWikiApi = requestAPI("https://"+indSel.id+".wikipedia.org/api/rest_v1/page/summary/"+indSel.text+"?redirect=true");
 	requestWikiApi.onreadystatechange = function(){
 		if(this.readyState === 4 && this.status === 200){
 			const jsonWikiApi = successResponse(this);
-			dogDesc.setHTML(jsonWikiApi.extract_html);
+			const careceFontes = '<span style="color:gray"><sup>[</sup></span><sup><span><span style="color:gray"><i>carece de fontes</i></span></span><span class="printfooter">?</span><span style="color:gray">]</span></sup>';
+			const htmlSaidaLimpo = jsonWikiApi.extract_html.replaceAll(careceFontes, "");
+			dogDesc.setHTML(htmlSaidaLimpo);
 		} else {
-			const msgErro = "<p>Descrição do cachorro <b>"+dogText+"</b> indisponível no momento</p>";
+			const msgErro = "<p>Descrição do cachorro <b>"+indSel.text+"</b> indisponível no momento</p>";
 			dogDesc.setHTML(msgErro);
 		}
 	}
