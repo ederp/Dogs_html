@@ -29,7 +29,9 @@ select {
 }
 
 #img_cao {
+	animation: fadeIn 2s;
 	border-radius: 5px;
+	box-shadow: 5px 5px 5px grey;
 	margin-left: 20px;
 	margin-right: 10px;
 	max-width: 60%;
@@ -37,7 +39,7 @@ select {
 }
 
 #c-loader {
-	animation: is-rotating 1s infinite;
+	animation: fadeIn 3s, is-rotating 1s infinite;
 	border: 6px solid #e5e5e5;
 	border-radius: 50%;
 	border-top-color: MidnightBlue;
@@ -45,6 +47,14 @@ select {
 	margin-right: 10px;
 	height: 50px;
 	width: 50px;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  25% { opacity: 0.25; }
+  50% { opacity: 0.5; }
+  75% { opacity: 0.75; }
+  100% { opacity: 1; }
 }
 
 @keyframes is-rotating {
