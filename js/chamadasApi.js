@@ -1,8 +1,16 @@
+function loadingImage(){
+    document.getElementById('img_cao').style.display = "none";
+	document.getElementById('c-loader').style.display = "inline-flex";
+}
+
 function requestAPI(endereco) {
 	const Http = new XMLHttpRequest();
 	const url = endereco;
 	Http.open("GET", url);
 	Http.send();
+	if (endereco.includes('dog.ceo')){
+		loadingImage();
+	}
 	return Http;
 }
 
@@ -12,19 +20,26 @@ function successResponse(http) {
 	return json;
 }
 
+function imageLoaded(imgCao, loading){
+	loading.style.display = "none";
+    imgCao.style.display = "inline-flex";
+}
+
 document.getElementById('select_cao').addEventListener('change', function() {
-	let dogImagem  = document.getElementById('img_cao');
+	const dogImagem  = document.getElementById('img_cao');
+	const dogImagemLoad = document.getElementById('c-loader');
 	let dogDesc = document.getElementById('desc_cao');
+	dogDesc.setHTML("");
 	const indSel = this.options[this.selectedIndex];
-	dogImagem.src = '';
 	const requestDogApi = requestAPI("https://dog.ceo/api/breed/"+this.value+"/images/random");
 	requestDogApi.onreadystatechange = function(){
+		imageLoaded(dogImagem, dogImagemLoad);
 		if(this.readyState === 4 && this.status === 200){
 			const jsonDogApi = successResponse(this);
 			dogImagem.src = jsonDogApi.message;
 		}
 	}
-	const requestWikiApi = requestAPI("https://"+indSel.id+".wikipedia.org/api/rest_v1/page/summary/"+indSel.text+"?redirect=true");
+	const requestWikiApi = requestAPI("https://"+indSel.className+".wikipedia.org/api/rest_v1/page/summary/"+indSel.text+"?redirect=true");
 	requestWikiApi.onreadystatechange = function(){
 		if(this.readyState === 4 && this.status === 200){
 			const jsonWikiApi = successResponse(this);
