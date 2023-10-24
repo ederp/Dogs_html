@@ -4,6 +4,19 @@ body {
 	font-family: "Perpetua", "Baskerville", "Big Caslon", "Palatino Linotype", "Palatino", serif;
 }
 
+#bg_image{
+	position: absolute;
+	background-image: url("../img/pata_cao.png");
+	background-size: 10%;
+	background-repeat: repeat;
+	top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+	opacity: 0.05;
+}
+
 #titulo {
 	text-align: center;
 }
