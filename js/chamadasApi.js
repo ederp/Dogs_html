@@ -60,7 +60,7 @@ function translateText(racaCao) {
 		break;
 		default:
 			return "<p>O <b>Toy Manchester Terrier</b> é uma raça de cachorro, categorizada como"+
-				" terrier . A raça foi reduzida em tamanho na América do Norte a partir do Manchester"+
+				" terrier. A raça foi reduzida em tamanho na América do Norte a partir do Manchester"+
 				" Terrier, e foi incluída no Toy Group pelo American Kennel Club e pelo Canadian Kennel"+
 				" Club (o Manchester Terrier está incluído no Grupo Terrier). Nem a Fédération Cynologique"+
 				" Internationale nem o The Kennel Club reconhecem a variedade Toy do Manchester Terrier.</p>"; 
