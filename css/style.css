@@ -2,19 +2,17 @@ body {
 	background-color: NavajoWhite;
 	color: MidnightBlue;
 	font-family: "Perpetua", "Baskerville", "Big Caslon", "Palatino Linotype", "Palatino", serif;
+	margin: 30px;
 }
 
 #bg_image{
-	position: absolute;
 	background-image: url("../img/pata_cao.png");
-	background-size: 10%;
 	background-repeat: repeat;
-	top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
+	background-size: 10%;
+	inset: 0 0 0 0;
+	position: fixed;
 	opacity: 0.05;
+	z-index: -1;
 }
 
 #titulo {
@@ -23,8 +21,7 @@ body {
 
 select {
 	display: block;
-	margin-left: auto;
-	margin-right: auto;
+	margin-inline: auto;
 }
 
 .flex-container {
@@ -45,7 +42,6 @@ select {
 	animation: fadeIn 2s;
 	border-radius: 5px;
 	box-shadow: 5px 5px 5px grey;
-	margin-left: 20px;
 	margin-right: 10px;
 	max-width: 60%;
 	
@@ -80,7 +76,6 @@ select {
 	font-size: 17px;
 	line-height: 1.5;
 	margin-left: 10px;
-	margin-right: 20px;
 	max-width: 90%;
 	text-align: center;
 }
