@@ -52,11 +52,18 @@ function translateText(racaCao) {
 				" com o objetivo de produzir um cão de companhia saudável com menor probabilidade"+
 				" de herdar alguns problemas de saúde e comportamentais comuns nas raças dos pais.</p>";
 		break;
-		default:
+		case "tervuren":
 			return "<p>O <b>Tervueren</b> é uma das quatro variedades da raça de cães pastor-belga,"+
 				" originária da Bélgica. Tornou-se popular quando começou a ser usado como farejador"+
 				" de entorpecentes. Possui pelagem longa, abundante e macia, com colaração em tons"+
 				" de preto com dourado/amarelo claro.</p>";
+		break;
+		default:
+			return "<p>O <b>Toy Manchester Terrier</b> é uma raça de cachorro, categorizada como"+
+				" terrier . A raça foi reduzida em tamanho na América do Norte a partir do Manchester"+
+				" Terrier, e foi incluída no Toy Group pelo American Kennel Club e pelo Canadian Kennel"+
+				" Club (o Manchester Terrier está incluído no Grupo Terrier). Nem a Fédération Cynologique"+
+				" Internationale nem o The Kennel Club reconhecem a variedade Toy do Manchester Terrier.</p>"; 
 	}
 }
 
