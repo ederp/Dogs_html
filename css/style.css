@@ -36,6 +36,10 @@ select {
 		flex-direction: column;
 		margin-top: 20px;
 	}
+
+	#img_cao {
+		max-width: 100%;
+	}
 }
 
 #img_cao {
