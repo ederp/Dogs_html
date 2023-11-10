@@ -2,6 +2,7 @@ import { PreencheSelect }  from './preencheSelect.js';
 import { traduzTexto } from './traduzTexto.js';
 
 const selectCaes = document.getElementById("select_cao");
+const dogImagemLoad = document.getElementById('c-loader');
 
 new PreencheSelect(selectCaes);
 
@@ -15,28 +16,31 @@ function imageLoaded(dogImagem, dogImagemLoad){
     dogImagem.style.display = 'inline-flex';
 }
 
-function requestAPI(endereco, label, dogConteudo, dogImagemLoad, api) {
-	const successResponse = {
-		'dogApi': function (json){
-			imageLoaded(dogConteudo, dogImagemLoad);
-			dogConteudo.src = json.message;
+function requestAPI(label, dogConteudo, api) {
+	const apiObj = {
+		'dogApi': {
+			endereco: "https://dog.ceo/api/breed/" + label + "/images/random",
+			successResponse: function (json) {
+				imageLoaded(dogConteudo, dogImagemLoad);
+				dogConteudo.src = json.message;
+			},
+			errorResponse: (dogConteudo) => dogConteudo
 		},
-		'wikipedia': function (json){
-			const careceFontes = '<span style="color:gray"><sup>[</sup></span><sup><span>'+
-				'<span style="color:gray"><i>carece de fontes</i></span></span>'+
-				'<span class="printfooter">?</span><span style="color:gray">]</span></sup>';
-			const htmlSaidaLimpo = json.extract_html.replaceAll(careceFontes, '');
-			dogConteudo.innerHTML = htmlSaidaLimpo;
-		},
-	};
-
-	const errorResponse = {
-		'dogApi':  (dogConteudo) => dogConteudo,
-		'wikipedia': (dogConteudo) => dogConteudo.innerHTML = '<p>Descrição do cachorro <b>' + label + '</b> indisponível no momento</p>',
+		'wikipedia': {
+			endereco: "https://pt.wikipedia.org/api/rest_v1/page/summary/" + label + "?redirect=true",
+			successResponse: function (json) {
+				const limpaCareceFontes = '<span style="color:gray"><sup>[</sup></span><sup><span>' +
+					'<span style="color:gray"><i>carece de fontes</i></span></span>' +
+					'<span class="printfooter">?</span><span style="color:gray">]</span></sup>';
+				const htmlSaidaLimpo = json.extract_html.replaceAll(limpaCareceFontes, '');
+				dogConteudo.innerHTML = htmlSaidaLimpo;
+			},
+			errorResponse: (dogConteudo) => dogConteudo.innerHTML = '<p>Descrição do cachorro <b>' + label + '</b> indisponível no momento</p>'
+		}
 	};
 	
 	const xhttp = new XMLHttpRequest();
-	const url = endereco;
+	const url = apiObj[api].endereco;
 	xhttp.onreadystatechange = function() {
 		if (this.readyState === 1 && api === 'dogApi') {
 			loadingImage(dogConteudo, dogImagemLoad);
@@ -44,9 +48,9 @@ function requestAPI(endereco, label, dogConteudo, dogImagemLoad, api) {
 		if (this.readyState === 4) {
 			if (this.status === 200) {
 				const json = JSON.parse(xhttp.responseText);
-				successResponse[api](json);
+				apiObj[api].successResponse(json);
 			} else {
-				errorResponse[api](dogConteudo);
+				apiObj[api].errorResponse(dogConteudo);
 			}
 		}
 	}
@@ -56,13 +60,12 @@ function requestAPI(endereco, label, dogConteudo, dogImagemLoad, api) {
 
 selectCaes.addEventListener('change', function() {
 	const dogImagem = document.getElementById('img_cao');
-	const dogImagemLoad = document.getElementById('c-loader');
 	let dogDescricao = document.getElementById('desc_cao');
 	dogDescricao.innerHTML = '';
 	const dogSelecionado = this.options[this.selectedIndex];
-	requestAPI("https://dog.ceo/api/breed/"+this.value+"/images/random", this.value, dogImagem, dogImagemLoad, 'dogApi');
+	requestAPI(this.value, dogImagem, 'dogApi');
 	if (dogSelecionado.className.includes("pt")) {
-		requestAPI("https://pt.wikipedia.org/api/rest_v1/page/summary/"+dogSelecionado.text+"?redirect=true", dogSelecionado.text, dogDescricao, null, 'wikipedia');
+		requestAPI(dogSelecionado.text, dogDescricao, 'wikipedia');
 	} else {
 		dogDescricao.innerHTML = traduzTexto(this.value);
 	}

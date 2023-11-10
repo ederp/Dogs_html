@@ -30,6 +30,14 @@ select {
 	margin-top: 20px;
 }
 
+#img_cao {
+	animation: fadeIn 2s;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px grey;
+	margin-right: 10px;
+	max-width: 60%;
+}
+
 @media (max-width: 800px){
 	.flex-container {
 		align-items: center;
@@ -40,15 +48,6 @@ select {
 	#img_cao {
 		max-width: 100%;
 	}
-}
-
-#img_cao {
-	animation: fadeIn 2s;
-	border-radius: 5px;
-	box-shadow: 5px 5px 5px grey;
-	margin-right: 10px;
-	max-width: 60%;
-	
 }
 
 #c-loader {
