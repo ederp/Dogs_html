@@ -1,13 +1,12 @@
 body {
-	background-color: NavajoWhite;
-	color: MidnightBlue;
-	font-family: "Perpetua", "Baskerville", "Big Caslon", "Palatino Linotype", "Palatino", serif;
+	background: navajowhite; 
+	color: midnightblue;
+	font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
 	margin: 30px;
 }
 
-#bg_image{
-	background-image: url("../img/pata_cao.png");
-	background-repeat: repeat;
+#bg_image {
+	background: url("../img/pata_cao.png");
 	background-size: 10%;
 	inset: 0 0 0 0;
 	position: fixed;
@@ -24,28 +23,29 @@ select {
 	margin-inline: auto;
 }
 
-.flex-container {
-	display: flex;
+#card {
+	background-color: navajowhite;
+	border-radius: 10px;
+	box-shadow: 5px 5px 5px grey;
 	flex-direction: row;
 	margin-top: 20px;
 }
 
 #img_cao {
 	animation: fadeIn 2s;
-	border-radius: 5px;
-	box-shadow: 5px 5px 5px grey;
-	margin-right: 10px;
+	border-radius: 10px 0 0 10px;
 	max-width: 60%;
 }
 
 @media (max-width: 800px){
-	.flex-container {
+	#card {
 		align-items: center;
 		flex-direction: column;
 		margin-top: 20px;
 	}
 
 	#img_cao {
+		border-radius: 10px 10px 0 0;
 		max-width: 100%;
 	}
 }
@@ -76,7 +76,7 @@ select {
 #desc_cao {
 	font-size: 17px;
 	line-height: 1.5;
-	margin-left: 10px;
+	padding: 10px;
 	max-width: 90%;
 	text-align: center;
 }

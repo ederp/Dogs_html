@@ -58,9 +58,13 @@ function requestAPI(label, dogConteudo, api) {
 	xhttp.send();
 }
 
-selectCaes.addEventListener('change', function() {
+selectCaes.addEventListener('change', function () {
+	const card = document.getElementById('card');
 	const dogImagem = document.getElementById('img_cao');
 	let dogDescricao = document.getElementById('desc_cao');
+	if (card.style.display === 'none') {
+		card.style.display = 'flex';
+	}
 	dogDescricao.innerHTML = '';
 	const dogSelecionado = this.options[this.selectedIndex];
 	requestAPI(this.value, dogImagem, 'dogApi');
