@@ -29,11 +29,11 @@ select {
 	box-shadow: 5px 5px 5px grey;
 	flex-direction: row;
 	margin-top: 20px;
+	overflow: clip;
 }
 
 #img_cao {
 	animation: fadeIn 2s;
-	border-radius: 10px 0 0 10px;
 	max-width: 60%;
 }
 
@@ -45,7 +45,6 @@ select {
 	}
 
 	#img_cao {
-		border-radius: 10px 10px 0 0;
 		max-width: 100%;
 	}
 }
